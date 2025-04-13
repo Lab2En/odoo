@@ -2,9 +2,10 @@ name: Build and Push Docker Image
 
 on:
   push:
-    branches: [main]  # or "master" depending on your repo
+    branches: ["18.0"]
+  pull_request:
+    branches: ["18.0"]
   workflow_dispatch:
-
 jobs:
   build:
     runs-on: ubuntu-latest
