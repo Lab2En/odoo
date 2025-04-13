@@ -38,6 +38,5 @@ COPY . .
 # Expose the port
 EXPOSE 8069
 
-COPY odoo.conf /etc/odoo/odoo.conf
 # Start Odoo
-CMD ["python", "odoo-bin", "--config=/etc/odoo/odoo.conf"]
+CMD ["python", "odoo-bin", "--config=odoo.conf"]
