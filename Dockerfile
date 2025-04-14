@@ -29,9 +29,11 @@ RUN apt-get update && apt-get install -y \
     libfreetype6 \
     wget \
     && wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.bullseye_amd64.deb \
-    && dpkg -i wkhtmltox_0.12.6-1.bullseye_amd64.deb \
+    && dpkg -i wkhtmltox_0.12.6-1.bullseye_amd64.deb || true \
+    && apt-get install -f -y \
     && rm wkhtmltox_0.12.6-1.bullseye_amd64.deb \
     && rm -rf /var/lib/apt/lists/*
+
 
 # Set environment variables
 ENV LANG=C.UTF-8
