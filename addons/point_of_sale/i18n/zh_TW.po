@@ -7455,6 +7455,13 @@ msgstr "付款卡品牌（例：Visa、美國運通⋯）"
 #. module: point_of_sale
 #. odoo-python
 #: code:addons/point_of_sale/models/pos_config.py:0
+msgid ""
+"The cash rounding strategy of the point of sale %(pos)s must be: '%(value)s'"
+msgstr "營業點 %(pos)s 的現金舍入策略必須是：“%(value)s”"
+
+#. module: point_of_sale
+#. odoo-python
+#: code:addons/point_of_sale/models/pos_config.py:0
 msgid "The default pricelist must be included in the available pricelists."
 msgstr "預設價目表必須包括在可用價目表中。"
 
@@ -8747,7 +8754,7 @@ msgstr "不可為屬於不同公司的訂單開立發票。"
 msgid ""
 "You cannot delete a rounding method that is used in a Point of Sale "
 "configuration."
-msgstr ""
+msgstr "你不可刪除銷售點配置所使用的捨入方式。"
 
 #. module: point_of_sale
 #. odoo-python

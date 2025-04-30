@@ -7692,6 +7692,15 @@ msgstr "La marque de la carte de paiement (par ex. Visa, AMEX, ...)"
 #. module: point_of_sale
 #. odoo-python
 #: code:addons/point_of_sale/models/pos_config.py:0
+msgid ""
+"The cash rounding strategy of the point of sale %(pos)s must be: '%(value)s'"
+msgstr ""
+"La stratégie d'arrondi des paiements en espèces du Point de Vente %(pos)s "
+"doit être : '%(value)s'"
+
+#. module: point_of_sale
+#. odoo-python
+#: code:addons/point_of_sale/models/pos_config.py:0
 msgid "The default pricelist must be included in the available pricelists."
 msgstr ""
 "La liste de prix par défaut doit figurer parmi les listes de prix "
@@ -9209,12 +9218,16 @@ msgstr "Vous devez d'abord supprimer ce produit du combo %s"
 #: code:addons/point_of_sale/models/pos_config.py:0
 msgid "You must have 'Administration Settings' access to load clothes data."
 msgstr ""
+"Vous devez avoir accès aux paramètres d’administration pour charger les "
+"données relatives aux vêtements. "
 
 #. module: point_of_sale
 #. odoo-python
 #: code:addons/point_of_sale/models/pos_config.py:0
 msgid "You must have 'Administration Settings' access to load furniture data."
 msgstr ""
+"Vous devez avoir accès aux paramètres d’administration pour charger les "
+"données sur le mobilier. "
 
 #. module: point_of_sale
 #. odoo-python

@@ -1068,7 +1068,7 @@ msgstr "参加中？"
 #: model:ir.model.fields.selection,name:calendar.selection__calendar_attendee__availability__free
 #: model:ir.model.fields.selection,name:calendar.selection__calendar_event__show_as__free
 msgid "Available"
-msgstr "処理可能"
+msgstr "利用可能"
 
 #. module: calendar
 #: model:ir.model.fields,field_description:calendar.field_calendar_attendee__availability
@@ -1260,7 +1260,7 @@ msgstr "設定"
 #. odoo-javascript
 #: code:addons/calendar/static/src/views/ask_recurrence_update_policy_dialog.xml:0
 msgid "Confirm"
-msgstr "確認"
+msgstr "確定"
 
 #. module: calendar
 #. odoo-javascript

@@ -136,7 +136,7 @@ msgstr "تم استيراد %s طلبات "
 #. odoo-python
 #: code:addons/point_of_sale/models/pos_session.py:0
 msgid "%s untaxed"
-msgstr ""
+msgstr "%s غير شامل الضريبة "
 
 #. module: point_of_sale
 #. odoo-javascript
@@ -1427,7 +1427,7 @@ msgstr "تعذّر وزن المنتج - جهاز IoT غير متصل بصندو
 #. odoo-javascript
 #: code:addons/point_of_sale/static/src/app/screens/scale_screen/scale_service.js:0
 msgid "Cannot weigh product - Scale is not connected to IoT Box"
-msgstr ""
+msgstr "تعذّر وزن المنتج - الميزان غير متصل بجهاز IoT "
 
 #. module: point_of_sale
 #. odoo-python
@@ -4236,7 +4236,7 @@ msgstr "الاسم"
 #. odoo-javascript
 #: code:addons/point_of_sale/static/src/app/navbar/navbar.js:0
 msgid "Navigate to your PoS Customer Display on the other computer"
-msgstr ""
+msgstr "انتقل إلى شاشة عرض عملاء نقطة البيع الخاصة بك على جهاز الحاسوب الآخر "
 
 #. module: point_of_sale
 #. odoo-javascript
@@ -7577,6 +7577,13 @@ msgstr "العلامة التجارية للبطاقة المستخدمة للد
 #. module: point_of_sale
 #. odoo-python
 #: code:addons/point_of_sale/models/pos_config.py:0
+msgid ""
+"The cash rounding strategy of the point of sale %(pos)s must be: '%(value)s'"
+msgstr "يجب أن تكون استراتيجية تقريب المال لنقطة البيع %(pos)s : '%(value)s' "
+
+#. module: point_of_sale
+#. odoo-python
+#: code:addons/point_of_sale/models/pos_config.py:0
 msgid "The default pricelist must be included in the available pricelists."
 msgstr "يجب أن تتضمن قوائم الأسعار المتاحة قائمة الأسعار الافتراضية."
 
@@ -8077,6 +8084,8 @@ msgid ""
 "This journal is associated with payment method %(payment_method)s that is "
 "being used by order %(pos_order)s in the active pos session %(pos_session)s"
 msgstr ""
+"يرتبط دفتر اليومية هذا بطريقة الدفع %(payment_method)s المستخدمة من قِبَل "
+"الطلب %(pos_order)s في جلسة نقاط البيع النشطة %(pos_session)s "
 
 #. module: point_of_sale
 #. odoo-javascript
@@ -8955,7 +8964,7 @@ msgstr "لا يمكنك فوترة الطلبات التي تنتمي لشركا
 msgid ""
 "You cannot delete a rounding method that is used in a Point of Sale "
 "configuration."
-msgstr ""
+msgstr "لا يمكنك حذف طريقة تقريب مستخدمة في تهيئة نقطة البيع. "
 
 #. module: point_of_sale
 #. odoo-python
@@ -9020,12 +9029,13 @@ msgstr "عليك إزالة هذا المنتج من %s الكومبو "
 #: code:addons/point_of_sale/models/pos_config.py:0
 msgid "You must have 'Administration Settings' access to load clothes data."
 msgstr ""
+"يجب أن تكون لديك صلاحية وصول 'إعدادات الإدارة' لتحميل بيانات الملابس. "
 
 #. module: point_of_sale
 #. odoo-python
 #: code:addons/point_of_sale/models/pos_config.py:0
 msgid "You must have 'Administration Settings' access to load furniture data."
-msgstr ""
+msgstr "يجب أن تكون لديك صلاحية وصول 'إعدادات الإدارة' لتحميل بيانات الأثاث. "
 
 #. module: point_of_sale
 #. odoo-python

@@ -961,7 +961,7 @@ msgstr "設定"
 #: model_terms:ir.ui.view,arch_db:product.product_label_layout_form
 #: model_terms:ir.ui.view,arch_db:product.update_product_attribute_value_form
 msgid "Confirm"
-msgstr "確認"
+msgstr "確定"
 
 #. module: product
 #: model:ir.model,name:product.model_res_partner
@@ -2218,7 +2218,7 @@ msgstr "メモ："
 #. module: product
 #: model:ir.model.fields.selection,name:product.selection__product_template__service_tracking__no
 msgid "Nothing"
-msgstr "なし"
+msgstr "追跡しない"
 
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_attribute__number_related_products

@@ -104,7 +104,7 @@ msgstr "%(refunded_order)s 返金"
 #. odoo-python
 #: code:addons/point_of_sale/models/pos_session.py:0
 msgid "%(title)s %(product_name)s with %(taxes)s"
-msgstr ""
+msgstr "%(title)s %(product_name)s 税: %(taxes)s"
 
 #. module: point_of_sale
 #. odoo-javascript
@@ -135,7 +135,7 @@ msgstr "%s オーダがインポートされました"
 #. odoo-python
 #: code:addons/point_of_sale/models/pos_session.py:0
 msgid "%s untaxed"
-msgstr ""
+msgstr "%s 税抜金額"
 
 #. module: point_of_sale
 #. odoo-javascript
@@ -453,7 +453,7 @@ msgstr "<strong>合計</strong>"
 #. odoo-javascript
 #: code:addons/point_of_sale/static/src/app/screens/payment_screen/payment_screen.js:0
 msgid "? Clicking \"Confirm\" will validate the payment."
-msgstr "? '確認'をクリックすると、支払いが検証されます。"
+msgstr "? \"確定\" をクリックすると、支払いが検証されます。"
 
 #. module: point_of_sale
 #: model:ir.model.fields,help:point_of_sale.field_pos_config__uuid
@@ -694,7 +694,7 @@ msgstr "レシートに5桁のコードを追加し、ユーザがポータル�
 #. odoo-javascript
 #: code:addons/point_of_sale/static/src/app/navbar/closing_popup/closing_popup.xml:0
 msgid "Add a closing note..."
-msgstr "終了ノートを追加..."
+msgstr "クロージングメモを追加..."
 
 #. module: point_of_sale
 #: model_terms:ir.ui.view,arch_db:point_of_sale.res_config_settings_view_form
@@ -726,7 +726,7 @@ msgstr "開始ノートを追加..."
 #. module: point_of_sale
 #: model_terms:ir.ui.view,arch_db:point_of_sale.res_config_settings_view_form
 msgid "Add internal notes on order lines for the kitchen"
-msgstr "厨房へのオーダ明細に内部ノートを追加"
+msgstr "厨房へのオーダ明細に内部メモを追加"
 
 #. module: point_of_sale
 #. odoo-javascript
@@ -1083,7 +1083,7 @@ msgstr "AvaTax PoS 統合"
 #. module: point_of_sale
 #: model_terms:ir.ui.view,arch_db:point_of_sale.res_config_settings_view_form
 msgid "Available"
-msgstr "処理可能"
+msgstr "利用可能"
 
 #. module: point_of_sale
 #: model:ir.model.fields,field_description:point_of_sale.field_pos_order__available_payment_method_ids
@@ -2019,7 +2019,7 @@ msgstr "少なくとも1つのPOSを構成します。"
 #: code:addons/point_of_sale/static/src/app/utils/date_picker_popup/date_picker_popup.js:0
 #: code:addons/point_of_sale/static/src/app/utils/money_details_popup/money_details_popup.xml:0
 msgid "Confirm"
-msgstr "確認"
+msgstr "確定"
 
 #. module: point_of_sale
 #. odoo-javascript
@@ -2031,7 +2031,7 @@ msgstr "支払を確認"
 #. odoo-javascript
 #: code:addons/point_of_sale/static/src/app/utils/input_popups/number_popup.js:0
 msgid "Confirm?"
-msgstr "確認しましたか？"
+msgstr "確定?"
 
 #. module: point_of_sale
 #: model_terms:ir.ui.view,arch_db:point_of_sale.pos_config_view_form
@@ -3527,7 +3527,7 @@ msgstr "内部注釈"
 #. module: point_of_sale
 #: model_terms:ir.ui.view,arch_db:point_of_sale.res_config_settings_view_form
 msgid "Internal Notes"
-msgstr "内部注記"
+msgstr "内部メモ"
 
 #. module: point_of_sale
 #. odoo-javascript
@@ -5158,7 +5158,7 @@ msgstr "お願いします。"
 #. odoo-javascript
 #: code:addons/point_of_sale/static/src/app/screens/payment_screen/payment_screen.js:0
 msgid "Please Confirm Large Amount"
-msgstr "大量に確認してください"
+msgstr "高額のため確認してください"
 
 #. module: point_of_sale
 #. odoo-javascript
@@ -6885,7 +6885,7 @@ msgstr "配送日"
 #: model:ir.model.fields,field_description:point_of_sale.field_pos_config__picking_policy
 #: model:ir.model.fields,field_description:point_of_sale.field_res_config_settings__pos_picking_policy
 msgid "Shipping Policy"
-msgstr "配送方針"
+msgstr "配送ポリシー"
 
 #. module: point_of_sale
 #: model:product.attribute,name:point_of_sale.product_attribute_size_number
@@ -7454,6 +7454,13 @@ msgstr ""
 #: model:ir.model.fields,help:point_of_sale.field_pos_payment__card_brand
 msgid "The brand of the payment card (e.g. Visa, AMEX, ...)"
 msgstr "クレジットカードのブランド (Visa、AMEX等)"
+
+#. module: point_of_sale
+#. odoo-python
+#: code:addons/point_of_sale/models/pos_config.py:0
+msgid ""
+"The cash rounding strategy of the point of sale %(pos)s must be: '%(value)s'"
+msgstr "POS%(pos)sの丸め方針は以下である必要があります: '%(value)s'"
 
 #. module: point_of_sale
 #. odoo-python
