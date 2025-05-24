@@ -1490,6 +1490,8 @@ msgid ""
 "<strong>Warning:</strong> Once the Audit Trail is enabled, it cannot be "
 "disabled again if there are any existing journal items."
 msgstr ""
+"<strong>Advertencia:</strong> Una vez que haya activado la pista de "
+"auditoría, no podrá desactivarla si ya existen apuntes contables."
 
 #. module: account
 #. odoo-python
@@ -1535,6 +1537,8 @@ msgid ""
 "A bank account with Account Number %(number)s already exists for Partner "
 "%(partner)s, but is archived. Please unarchive it instead."
 msgstr ""
+"Ya existe una cuenta bancaria con el número de cuenta %(number)s para el "
+"contacto %(partner)s, pero está archivada. Desarchívela."
 
 #. module: account
 #: model_terms:ir.actions.act_window,help:account.action_bank_statement_tree
@@ -3550,7 +3554,7 @@ msgstr "Cuenta bancaria"
 #. odoo-python
 #: code:addons/account/models/res_partner_bank.py:0
 msgid "Bank Account %(link)s with number %(number)s archived"
-msgstr ""
+msgstr "Se ha archivado la cuenta bancaria %(link)s con el número %(number)s"
 
 #. module: account
 #. odoo-python
@@ -3881,7 +3885,7 @@ msgstr "Referencia de factura"
 #: model_terms:ir.ui.view,arch_db:account.view_account_bill_filter
 #: model_terms:ir.ui.view,arch_db:account.view_account_move_line_payment_filter
 msgid "Bills"
-msgstr "Facturas (proveedores)"
+msgstr "Facturas de proveedores"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.account_journal_dashboard_kanban_view
@@ -4157,7 +4161,7 @@ msgstr ""
 #. odoo-python
 #: code:addons/account/models/account_move_send.py:0
 msgid "Cannot identify the invoices in the generated PDF: %s"
-msgstr ""
+msgstr "No es posible identificar facturas en el archivo PDF generado: %s"
 
 #. module: account
 #: model:account.account,name:account.1_capital
@@ -8471,9 +8475,9 @@ msgid ""
 "must charge VAT based on the delivery address. This rule applies regardless "
 "of where you are located."
 msgstr ""
-"Si vende productos y servicios a clientes en un país extranjero en la UE, "
-"debe cobrar IVA según la dirección de entrega. Esta regla aplica sin "
-"importar dónde esté ubicado."
+"Si vende productos y servicios a clientes en un país fuera de la UE, debe "
+"cobrar el IVA en función de la dirección de entrega. Esta regla aplica sin "
+"importar dónde se encuentra usted."
 
 #. module: account
 #. odoo-python
@@ -9211,7 +9215,7 @@ msgstr "Facturado"
 #: model_terms:ir.ui.view,arch_db:account.view_account_payment_graph
 #: model_terms:ir.ui.view,arch_db:account.view_invoice_tree
 msgid "Invoices"
-msgstr "Facturas (clientes)"
+msgstr "Facturas de clientes"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.portal_my_home_menu_invoice
@@ -18142,7 +18146,7 @@ msgstr "¡Valor de crédito o débito incorrecto en el asiento contable!"
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_partner_property_form
 msgid "XML format"
-msgstr ""
+msgstr "Formato XML"
 
 #. module: account
 #: model:ir.model.fields.selection,name:account.selection__account_move__auto_post__yearly

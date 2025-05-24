@@ -1489,6 +1489,8 @@ msgid ""
 "<strong>Warning:</strong> Once the Audit Trail is enabled, it cannot be "
 "disabled again if there are any existing journal items."
 msgstr ""
+"<strong>Advertencia:</strong> Una vez que haya activado la pista de "
+"auditoría no podrá desactivarla si hay apuntes contables."
 
 #. module: account
 #. odoo-python
@@ -1534,6 +1536,8 @@ msgid ""
 "A bank account with Account Number %(number)s already exists for Partner "
 "%(partner)s, but is archived. Please unarchive it instead."
 msgstr ""
+"Ya existe una cuenta bancaria con el número de cuenta %(number)s para el "
+"contacto %(partner)s, pero está archivada. Desarchívela."
 
 #. module: account
 #: model_terms:ir.actions.act_window,help:account.action_bank_statement_tree
@@ -3550,7 +3554,7 @@ msgstr "Cuenta bancaria"
 #. odoo-python
 #: code:addons/account/models/res_partner_bank.py:0
 msgid "Bank Account %(link)s with number %(number)s archived"
-msgstr ""
+msgstr "Se archivó la cuenta bancaria %(link)s con el número %(number)s"
 
 #. module: account
 #. odoo-python
@@ -3882,7 +3886,7 @@ msgstr "Referencia de factura"
 #: model_terms:ir.ui.view,arch_db:account.view_account_bill_filter
 #: model_terms:ir.ui.view,arch_db:account.view_account_move_line_payment_filter
 msgid "Bills"
-msgstr "Facturas de clientes"
+msgstr "Facturas de proveedor"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.account_journal_dashboard_kanban_view
@@ -3987,7 +3991,7 @@ msgid ""
 "By unchecking the active field, you may hide a fiscal position without "
 "deleting it."
 msgstr ""
-"Al deseleccionar el campo actual ocultará la posición fiscal sin borrarla."
+"Al deseleccionar el campo actual ocultará la posición fiscal sin eliminarla."
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_incoterms__active
@@ -4159,7 +4163,7 @@ msgstr ""
 #. odoo-python
 #: code:addons/account/models/account_move_send.py:0
 msgid "Cannot identify the invoices in the generated PDF: %s"
-msgstr ""
+msgstr "No es posible identificar facturas en el PDF generado: %s"
 
 #. module: account
 #: model:account.account,name:account.1_capital
@@ -9759,7 +9763,7 @@ msgstr "Junio"
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_journal__kanban_dashboard
 msgid "Kanban Dashboard"
-msgstr "Tablero kanban"
+msgstr "Tablero de kanban"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_journal__kanban_dashboard_graph
@@ -16912,8 +16916,8 @@ msgid ""
 "To keep the audit trail, you can not delete journal entries once they have been posted.\n"
 "Instead, you can cancel the journal entry."
 msgstr ""
-"Para mantener mantener la auditoría en orden, no puede eliminar los asientos contables una vez que los haya registrado.\n"
-"Mejor cancele el asiento contable."
+"Para mantener la pista de auditoría, no puede eliminar los asientos contables una vez que los haya registrado.\n"
+"Cancele el asiento contable."
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_account_invoice_filter
