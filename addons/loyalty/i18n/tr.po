@@ -27,15 +27,15 @@
 # Ertuğrul Güreş <ertugrulg@projetgrup.com>, 2024
 # Ediz Duman <neps1192@gmail.com>, 2024
 # Halil, 2024
-# Deniz Guvener, 2025
+# Deniz Guvener_Odoo <degu@odoo.com>, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-14 20:47+0000\n"
+"POT-Creation-Date: 2025-05-30 18:37+0000\n"
 "PO-Revision-Date: 2024-09-25 09:41+0000\n"
-"Last-Translator: Deniz Guvener, 2025\n"
+"Last-Translator: Deniz Guvener_Odoo <degu@odoo.com>, 2025\n"
 "Language-Team: Turkish (https://app.transifex.com/odoo/teams/41243/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1975,6 +1975,12 @@ msgstr "Tetikleyici"
 
 #. module: loyalty
 #. odoo-python
+#: code:addons/loyalty/models/loyalty_reward.py:0
+msgid "Unsupported search operator"
+msgstr ""
+
+#. module: loyalty
+#. odoo-python
 #: code:addons/loyalty/models/loyalty_card.py:0
 #: model_terms:ir.ui.view,arch_db:loyalty.loyalty_card_update_balance_form
 msgid "Update Balance"
@@ -2266,6 +2272,11 @@ msgstr "den"
 #: model_terms:ir.ui.view,arch_db:loyalty.loyalty_program_view_form
 msgid "usages"
 msgstr "Kullanım"
+
+#. module: loyalty
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_program_view_form
+msgid "used)"
+msgstr ""
 
 #. module: loyalty
 #. odoo-python
