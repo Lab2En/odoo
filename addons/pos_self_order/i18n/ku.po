@@ -72,7 +72,7 @@ msgstr "چالاک"
 #. module: pos_self_order
 #: model_terms:ir.ui.view,arch_db:pos_self_order.res_config_settings_view_form_menu
 msgid "Add Languages"
-msgstr ""
+msgstr "زمانەکان زیاد بکە"
 
 #. module: pos_self_order
 #: model_terms:ir.ui.view,arch_db:pos_self_order.res_config_settings_view_form_menu
@@ -634,7 +634,7 @@ msgstr ""
 #. odoo-javascript
 #: code:addons/pos_self_order/static/src/app/pages/landing_page/landing_page.xml:0
 msgid "My Orders"
-msgstr ""
+msgstr "داواکارییەکانم"
 
 #. module: pos_self_order
 #. odoo-javascript
@@ -709,7 +709,7 @@ msgstr ""
 #. odoo-javascript
 #: code:addons/pos_self_order/static/src/app/components/order_widget/order_widget.js:0
 msgid "Order"
-msgstr ""
+msgstr "داواکای"
 
 #. module: pos_self_order
 #. odoo-python

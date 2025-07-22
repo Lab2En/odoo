@@ -145,6 +145,15 @@ test("should remove a bold tag that was redondant while performing the command",
     }
 });
 
+test("should remove bold format when having newline character nodes in selection", async () => {
+    await testEditor({
+        contentBefore:
+            "<p><strong>[abc</strong></p>\n<p><strong>def</strong></p>\n<p><strong>ghi]</strong></p>",
+        stepFunction: bold,
+        contentAfter: "<p>[abc</p>\n<p>def</p>\n<p>ghi]</p>",
+    });
+});
+
 test("should remove a bold tag that was redondant with different tags while performing the command", async () => {
     await testEditor({
         contentBefore: unformat(`<p>
@@ -223,8 +232,8 @@ test("should make a few characters bold inside table (bold)", async () => {
     });
 });
 
-test("should insert a span zws when toggling a formatting command twice", () => {
-    return testEditor({
+test("should insert a span zws when toggling a formatting command twice", () =>
+    testEditor({
         contentBefore: `<p>[]<br></p>`,
         stepFunction: async (editor) => {
             bold(editor);
@@ -234,8 +243,7 @@ test("should insert a span zws when toggling a formatting command twice", () => 
         // the P could have the "/" hint but that behavior might be
         // complex with the current implementation.
         contentAfterEdit: `<p>${span(`[]\u200B`, "first")}</p>`,
-    });
-});
+    }));
 
 // This test uses execCommand to reproduce as closely as possible the browser's
 // default behaviour when typing in a contenteditable=true zone.

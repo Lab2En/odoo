@@ -419,6 +419,6 @@ class GoogleSync(models.AbstractModel):
         Returns True if the record insertion to Google should be blocked.
         This is a necessary step for ensuring data match between Odoo and Google,
         as it avoids that events have permanently the wrong organizer in Google
-        by not synchronizing records through owner and not  through the attendees.
+        by not synchronizing records through owner and not through the attendees.
         """
         raise NotImplementedError()

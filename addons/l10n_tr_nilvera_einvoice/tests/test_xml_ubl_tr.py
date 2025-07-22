@@ -23,6 +23,7 @@ class TestUBLTR(AccountTestInvoicingCommon):
             'country_id': cls.env.ref('base.tr').id,
             'email': 'info@company.trexample.com',
             'phone': '+90 501 234 56 78',
+            'ref': 'Ulus',
             'bank_ids': [(0, 0, {'acc_number': 'TR0123456789'})],
         })
 
@@ -38,6 +39,7 @@ class TestUBLTR(AccountTestInvoicingCommon):
             'phone': '+90 509 876 54 32',
             'bank_ids': [(0, 0, {'acc_number': 'TR9876543210'})],
             'invoice_edi_format': 'ubl_tr',
+            'ref': 'Ulus',
             'l10n_tr_nilvera_customer_status': 'einvoice',  # Pretend that the customer status has been checked
         })
 

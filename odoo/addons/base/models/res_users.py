@@ -230,7 +230,7 @@ class Groups(models.Model):
         where_domains = []
         for group in operand:
             values = [v for v in group.split('/') if v]
-            group_name = values.pop().strip()
+            group_name = values.pop().strip() if values else ''
             category_name = values and '/'.join(values).strip() or group_name
             group_domain = [('name', operator, lst and [group_name] or group_name)]
             category_ids = self.env['ir.module.category'].sudo()._search(
@@ -2316,6 +2316,12 @@ class APIKeysUser(models.Model):
                 'auth_method': 'apikey',
                 'mfa': 'default',
             }
+
+        if not user_agent_env.get('interactive', True) and self.env.user._rpc_api_keys_only():
+            _logger.info(
+                "Invalid API key or password-based authentication attempted for a non-interactive (API) "
+                "context that requires API key authentication only."
+            )
 
         raise AccessDenied()
 

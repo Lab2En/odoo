@@ -17,7 +17,8 @@ from odoo import tools
 
 from .test_token_access import TestTokenAccess
 
-@tagged('odoo2google')
+
+@tagged('odoo2google', 'calendar_performance', 'is_query_count')
 @patch.object(User, '_get_google_calendar_token', lambda user: 'dummy-token')
 class TestSyncOdoo2Google(TestSyncGoogle):
 
@@ -80,7 +81,7 @@ class TestSyncOdoo2Google(TestSyncGoogle):
         })
         partner_model = self.env.ref('base.model_res_partner')
         partner = self.env['res.partner'].search([], limit=1)
-        with self.assertQueryCount(__system__=615):
+        with self.assertQueryCount(__system__=526):
             events = self.env['calendar.event'].create([{
                 'name': "Event %s" % (i),
                 'start': datetime(2020, 1, 15, 8, 0),
@@ -95,9 +96,8 @@ class TestSyncOdoo2Google(TestSyncGoogle):
 
             events._sync_odoo2google(self.google_service)
 
-        with self.assertQueryCount(__system__=29):
+        with self.assertQueryCount(__system__=24):
             events.unlink()
-
 
     @patch_api
     @users('__system__')
@@ -111,7 +111,7 @@ class TestSyncOdoo2Google(TestSyncGoogle):
             'duration': 18,
         })
         partner_model = self.env.ref('base.model_res_partner')
-        with self.assertQueryCount(__system__=86):
+        with self.assertQueryCount(__system__=105):
             event = self.env['calendar.event'].create({
                 'name': "Event",
                 'start': datetime(2020, 1, 15, 8, 0),
@@ -128,7 +128,7 @@ class TestSyncOdoo2Google(TestSyncGoogle):
                 'res_id': partner.id,
             })
 
-        with self.assertQueryCount(__system__=38):
+        with self.assertQueryCount(__system__=29):  # gc: 34
             event.unlink()
 
     def test_event_without_user(self):
@@ -897,47 +897,8 @@ class TestSyncOdoo2Google(TestSyncGoogle):
         }, timeout=3)
 
     @patch_api
-    def test_event_duplication_allday_google_calendar(self):
-        event = self.env['calendar.event'].with_user(self.organizer_user).create({
-            'name': "Event",
-            'allday': True,
-            'partner_ids': [(4, self.organizer_user.partner_id.id), (4, self.attendee_user.partner_id.id)],
-            'start': datetime(2020, 1, 15),
-            'stop': datetime(2020, 1, 15),
-            'need_sync': False,
-        })
-        event._sync_odoo2google(self.google_service)
-        event_response_data = {
-            'id': False,
-            'start': {'date': '2020-01-15', 'dateTime': None},
-            'end': {'date': '2020-01-16', 'dateTime': None},
-            'summary': 'Event',
-            'description': '',
-            'location': '',
-            'guestsCanModify': True,
-            'organizer': {'email': self.organizer_user.email, 'self': True},
-            'attendees': [
-                            {'email': self.attendee_user.email, 'responseStatus': 'needsAction'},
-                            {'email': self.organizer_user.email, 'responseStatus': 'accepted'}
-                         ],
-            'reminders': {'overrides': [], 'useDefault': False},
-            'transparency': 'opaque',
-        }
-        self.assertGoogleEventInsertedMultiTime({
-            **event_response_data,
-            'extendedProperties': {'shared': {'%s_odoo_id' % self.env.cr.dbname: event.id}},
-        })
-
-        event2 = event.copy()
-        event2._sync_odoo2google(self.google_service)
-        self.assertGoogleEventInsertedMultiTime({
-            **event_response_data,
-            'extendedProperties': {'shared': {'%s_odoo_id' % self.env.cr.dbname: event2.id}},
-        })
-
-    @patch_api
     @patch.object(User, '_sync_request')
-    def test_skip_sync_for_non_synchronized_users_new_events(self, mock_sync_request):
+    def test_skip_google_sync_for_non_synchronized_users_new_events(self, mock_sync_request):
         """
         Skip the synchro of new events by attendees when the organizer is not synchronized with Google.
         Otherwise, the event ownership will be lost to the attendee and it could generate duplicates in
@@ -988,6 +949,45 @@ class TestSyncOdoo2Google(TestSyncGoogle):
                             ],
                 'extendedProperties': {'shared': {'%s_odoo_id' % self.env.cr.dbname: record.id}},
             })
+
+    @patch_api
+    def test_event_duplication_allday_google_calendar(self):
+        event = self.env['calendar.event'].with_user(self.organizer_user).create({
+            'name': "Event",
+            'allday': True,
+            'partner_ids': [(4, self.organizer_user.partner_id.id), (4, self.attendee_user.partner_id.id)],
+            'start': datetime(2020, 1, 15),
+            'stop': datetime(2020, 1, 15),
+            'need_sync': False,
+        })
+        event._sync_odoo2google(self.google_service)
+        event_response_data = {
+            'id': False,
+            'start': {'date': '2020-01-15', 'dateTime': None},
+            'end': {'date': '2020-01-16', 'dateTime': None},
+            'summary': 'Event',
+            'description': '',
+            'location': '',
+            'guestsCanModify': True,
+            'organizer': {'email': self.organizer_user.email, 'self': True},
+            'attendees': [
+                            {'email': self.attendee_user.email, 'responseStatus': 'needsAction'},
+                            {'email': self.organizer_user.email, 'responseStatus': 'accepted'}
+                         ],
+            'reminders': {'overrides': [], 'useDefault': False},
+            'transparency': 'opaque',
+        }
+        self.assertGoogleEventInsertedMultiTime({
+            **event_response_data,
+            'extendedProperties': {'shared': {'%s_odoo_id' % self.env.cr.dbname: event.id}},
+        })
+
+        event2 = event.copy()
+        event2._sync_odoo2google(self.google_service)
+        self.assertGoogleEventInsertedMultiTime({
+            **event_response_data,
+            'extendedProperties': {'shared': {'%s_odoo_id' % self.env.cr.dbname: event2.id}},
+        })
 
     def test_event_over_send_updates(self):
         """Test that events that are over don't sent updates to attendees."""
@@ -1071,6 +1071,7 @@ class TestSyncOdoo2Google(TestSyncGoogle):
                 self.call_post_commit_hooks()
             self.assertFalse(future_recurrence._is_event_over(), "Future recurrence should not be considered over")
             self.assertGoogleEventSendUpdates('all')
+
 
 @tagged('odoo2google')
 class TestSyncOdoo2GoogleMail(TestTokenAccess, TestSyncGoogle, MailCommon):

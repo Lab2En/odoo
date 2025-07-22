@@ -24,7 +24,7 @@ class AccountMoveLine(models.Model):
         # EXTENDS 'account'
         vals = super()._related_analytic_distribution()
         if self.sale_line_ids and not self.analytic_distribution:
-            vals |= self.sale_line_ids.analytic_distribution or {}
+            vals |= self.sale_line_ids[0].analytic_distribution or {}
         return vals
 
     def _prepare_analytic_lines(self):
@@ -175,6 +175,7 @@ class AccountMoveLine(models.Model):
             'product_uom': self.product_uom_id.id,
             'product_uom_qty': self.quantity,
             'is_expense': True,
+            'analytic_distribution': self.analytic_distribution,
         }
 
     def _sale_get_invoice_price(self, order):
