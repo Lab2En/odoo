@@ -2353,6 +2353,48 @@ class TestPointOfSaleFlow(TestPointOfSaleCommon):
         refunded_order_line = self.env['pos.order.line'].search([('product_id', '=', product.id), ('qty', '=', -2)])
         self.assertEqual(refunded_order_line.total_cost, -20)
 
+    def test_pos_order_partner_bank_id(self):
+        # Setup a running session, with a paid pos order that is not invoiced
+        self.pos_config.open_ui()
+        self.cash_payment_method.journal_id.bank_account_id = self.env['res.partner.bank'].create({
+            'acc_number': 'FR7612345678901234567890123',
+            'partner_id': self.company.partner_id.id,
+            'bank_name': 'Test Bank',
+        })
+        current_session = self.pos_config.current_session_id
+        self.order = self.env['pos.order'].create({
+            'company_id': self.env.company.id,
+            'session_id': current_session.id,
+            'partner_id': self.partner1.id,
+            'lines': [[0, 0, {
+                'name': "OL/0001",
+                'product_id': self.product_a.id,
+                'price_unit': 10,
+                'discount': 0,
+                'qty': 1,
+                'tax_ids': [],
+                'price_subtotal': 10,
+                'price_subtotal_incl': 10,
+                'total_cost': 10,
+            }]],
+            'amount_paid': 10.0,
+            'amount_total': 10.0,
+            'amount_tax': 0.0,
+            'amount_return': 0.0,
+            'to_invoice': True,
+            'last_order_preparation_change': '{}'
+            })
+        context_make_payment = {"active_ids": [self.order.id], "active_id": self.order.id}
+        self.pos_make_payment_0 = self.PosMakePayment.with_context(context_make_payment).create({
+            'amount': 10.0,
+            'payment_method_id': self.cash_payment_method.id,
+        })
+        context_payment = {'active_id': self.order.id}
+        self.pos_make_payment_0.with_context(context_payment).check()
+        res = self.order.action_pos_order_invoice()
+        invoice = self.env['account.move'].browse(res['res_id'])
+        self.assertEqual(invoice.partner_bank_id, self.cash_payment_method.journal_id.bank_account_id, "The invoice should have the partner's bank account set.")
+
     def test_sum_only_pos_locations(self):
         """Test that quantities are summed only from POS source locations"""
 
@@ -2474,3 +2516,72 @@ class TestPointOfSaleFlow(TestPointOfSaleCommon):
             'balance': 90.0,
             'account_id': self.bank_payment_move.payment_ids.outstanding_account_id.id,
         }])
+
+    def test_invoice_rounding_overpaid_backend(self):
+        rouding_method = self.env['account.cash.rounding'].create({
+            'name': 'Rounding up',
+            'rounding': 0.05,
+            'rounding_method': 'UP',
+            'profit_account_id': self.company_data['default_account_revenue'].id,
+            'loss_account_id': self.company_data['default_account_expense'].id,
+        })
+
+        product = self.env['product.product'].create({
+            'name': 'Product Test',
+            'available_in_pos': True,
+            'list_price': 149.99,
+            'taxes_id': False,
+        })
+
+        self.pos_config.write({
+            'rounding_method': rouding_method.id,
+            'cash_rounding': True,
+            'only_round_cash_method': True,
+        })
+
+        self.pos_config.open_ui()
+        current_session = self.pos_config.current_session_id
+
+        pos_order_data = {
+            'amount_paid': 149.99,
+            'amount_tax': 0,
+            'amount_return': 0.01,
+            'amount_total': 149.99,
+            'date_order': fields.Datetime.to_string(fields.Datetime.now()),
+            'fiscal_position_id': False,
+            'lines': [[0, 0, {
+                'discount': 0,
+                'pack_lot_ids': [],
+                'price_unit': 149.99,
+                'product_id': product.id,
+                'price_subtotal': 149.99,
+                'price_subtotal_incl': 149.99,
+                'tax_ids': [[6, False, []]],
+                'qty': 1,
+            }]],
+            'name': 'Order 12345-123-1234',
+            'partner_id': self.partner1.id,
+            'session_id': current_session.id,
+            'sequence_number': 2,
+            'payment_ids': [[0, 0, {
+                'amount': 100,
+                'name': fields.Datetime.now(),
+                'payment_method_id': self.cash_payment_method.id
+            }], [0, 0, {
+                'amount': 50,
+                'name': fields.Datetime.now(),
+                'payment_method_id': self.bank_payment_method.id
+            }]],
+            'uuid': '12345-123-1234',
+            'user_id': self.env.uid,
+            'to_invoice': False,
+        }
+        self.PosOrder.sync_from_ui([pos_order_data])
+
+        total_cash_payment = sum(current_session.mapped('order_ids.payment_ids').filtered(lambda payment: payment.payment_method_id.type == 'cash').mapped('amount'))
+        current_session.post_closing_cash_details(total_cash_payment)
+        current_session.close_session_from_ui()
+
+        pos_order = self.env['pos.order'].search([])
+        pos_order.action_pos_order_invoice()
+        self.assertEqual(pos_order.state, 'invoiced')
