@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-08 18:37+0000\n"
-"PO-Revision-Date: 2025-08-13 09:14+0000\n"
-"Last-Translator: Yoshi Tashiro <tashiro@quartile.co>\n"
+"PO-Revision-Date: 2025-08-26 14:54+0000\n"
+"Last-Translator: \"Junko Augias (juau)\" <juau@odoo.com>\n"
 "Language-Team: Japanese <https://translate.odoo.com/projects/odoo-18/website/"
 "ja/>\n"
 "Language: ja\n"
@@ -923,8 +923,8 @@ msgstr ""
 "様のEメールアドレスまたはソーシャルメディアのアカウントを使用して、弊社のプ"
 "ラットフォームに登録することが必要です。 アカウントを作成すると、アカウントを"
 "有効化するためのリンクが記載された確認メールが送信されます。 有効化すると、プ"
-"ロフィールの作成が求められます。これには、好みの設定、必要な支払情報の追加、"
-"および使用を希望する初期機能またはモジュールの選択が含まれています。"
+"ロフィールの作成が求められます。これには、個人設定、必要な支払情報の追加、お"
+"よび使用を希望する初期機能またはモジュールの選択が含まれています。"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_banner
@@ -2265,7 +2265,7 @@ msgstr ""
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_chart
 msgid "A Chart Title"
-msgstr "チャートタイトル"
+msgstr "チャート件名"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_image_title
@@ -2723,6 +2723,12 @@ msgstr "タブを追加"
 #: code:addons/website/static/src/xml/website.editor.xml:0
 msgid "Add Text Highlight Effects"
 msgstr "テキストハイライト効果を追加"
+
+#. module: website
+#. odoo-python
+#: code:addons/website/models/res_config_settings.py:0
+msgid "Add Website"
+msgstr ""
 
 #. module: website
 #. odoo-javascript
@@ -3571,7 +3577,7 @@ msgstr "Bigボックス"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippet_options
 msgid "Big Icons Subtitles"
-msgstr "大アイコンサブタイトル"
+msgstr "大アイコンサブ件名"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippets
@@ -4036,7 +4042,7 @@ msgstr "カードリンク"
 #: model_terms:ir.ui.view,arch_db:website.bs_debug_view
 #: model_terms:ir.ui.view,arch_db:website.s_card
 msgid "Card title"
-msgstr "カードタイトル"
+msgstr "カード件名"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippet_options
@@ -6186,7 +6192,7 @@ msgstr "このコンテンツを編集"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_carousel
 msgid "Edit this title"
-msgstr "このタイトルを編集"
+msgstr "この件名を編集"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippet_options_background_options
@@ -7415,18 +7421,18 @@ msgstr "ビューへ移動"
 #. odoo-javascript
 #: code:addons/website/static/src/client_actions/website_dashboard/website_dashboard.xml:0
 msgid "Go to Website"
-msgstr "ウェブサイトへ"
+msgstr "ウェブサイトへ移動"
 
 #. module: website
 #. odoo-javascript
 #: code:addons/website/static/src/js/tours/tour_utils.js:0
 msgid "Go to the Theme tab"
-msgstr "テーマタブへ"
+msgstr "テーマタブへ移動"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.layout
 msgid "Go to your Odoo Apps"
-msgstr "あなたのOdooアプリへ"
+msgstr "Odooアプリへ移動"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_carousel
@@ -7603,12 +7609,12 @@ msgstr "H2"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.color_combinations_debug_view
 msgid "H4 Card title"
-msgstr "H4カードタイトル"
+msgstr "H4カード件名"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.color_combinations_debug_view
 msgid "H5 Card subtitle"
-msgstr "H5カードサブタイトル"
+msgstr "H5カードサブ件名"
 
 #. module: website
 #: model:ir.ui.menu,name:website.menu_ace_editor
@@ -8287,7 +8293,7 @@ msgstr "画像テキスト画像"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippets
 msgid "Image Title"
-msgstr "画像タイトル"
+msgstr "画像件名"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_card_options
@@ -8321,7 +8327,7 @@ msgstr "画像間隔"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippet_options
 msgid "Images Subtitles"
-msgstr "画像サブタイトル"
+msgstr "画像サブ件名"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippets
@@ -9062,7 +9068,7 @@ msgstr "ランディングページ"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_card_options
 msgid "Landscape - 4/3"
-msgstr "横向き - 4/3"
+msgstr "横長 - 4/3"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website_visitor__lang_id
@@ -9542,7 +9548,7 @@ msgstr "小さなアイコン"
 #. module: website
 #: model:website.configurator.feature,name:website.feature_module_live_chat
 msgid "Live Chat"
-msgstr "Webチャット"
+msgstr "ライブチャット"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.res_config_settings_view_form
@@ -9553,7 +9559,7 @@ msgstr "ライブチャット"
 #. odoo-javascript
 #: code:addons/website/static/src/systray_items/new_content.js:0
 msgid "Livechat Widget"
-msgstr "Webチャットウィジェット"
+msgstr "ライブチャットウィジェット"
 
 #. module: website
 #. odoo-javascript
@@ -10032,7 +10038,7 @@ msgstr "モダル"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.bs_debug_view
 msgid "Modal title"
-msgstr "モダルタイトル"
+msgstr "モダル件名"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_theme_ir_ui_view__mode
@@ -10105,7 +10111,7 @@ msgstr "モジュールマーケティングオートメーション"
 #. module: website
 #: model:ir.model.fields,field_description:website.field_res_config_settings__module_website_livechat
 msgid "Module Website Livechat"
-msgstr "モジュールサイトWebチャット"
+msgstr "モジュールサイトライブチャット"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.res_config_settings_view_form
@@ -10120,10 +10126,10 @@ msgid ""
 "push notification. If they have completed one of your forms, you can send "
 "them an SMS, or call them right away while they are browsing your website."
 msgstr ""
-"Odooソーシャルアプリをお使いする訪問者はサイトを閲覧する際モニターします。Web"
-"チャットやプッシュ通知で、ワンクリックで訪問者と繋がれます。サイトのフォーム"
-"が記入された場合、まだサイトにいるうちにSMSを送信する、又は直接呼び出しましょ"
-"う。"
+"Odooソーシャルアプリをお使いする訪問者はサイトを閲覧する際モニターします。ラ"
+"イブチャットやプッシュ通知で、ワンクリックで訪問者と繋がれます。サイトの"
+"フォームが記入された場合、まだサイトにいるうちにSMSを送信する、又は直接呼び出"
+"しましょう。"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_mega_menu_odoo_menu
@@ -10478,7 +10484,7 @@ msgstr "検索結果は見つかりませんでした。 別のキーワード�
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_dynamic_snippet_options_template
 msgid "No title"
-msgstr "タイトルなし"
+msgstr "件名なし"
 
 #. module: website
 #. odoo-javascript
@@ -11316,7 +11322,7 @@ msgstr "ページプロパティベース"
 #: model_terms:ir.ui.view,arch_db:website.website_page_properties_view_form
 #: model_terms:ir.ui.view,arch_db:website.website_pages_tree_view
 msgid "Page Title"
-msgstr "ページタイトル"
+msgstr "ページ件名"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website_page__url
@@ -11367,7 +11373,7 @@ msgstr "ページの説明が設定されていません。"
 #. odoo-javascript
 #: code:addons/website/static/src/js/utils.js:0
 msgid "Page title not set."
-msgstr "ページタイトルが設定されていません。"
+msgstr "ページ件名が設定されていません。"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_theme_website_page__copy_ids
@@ -11676,7 +11682,7 @@ msgstr "はがき"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.cookie_policy
 msgid "Preferences<br/>(essential)"
-msgstr "環境設定<br/>(必須)"
+msgstr "個人設定<br/>(必須)"
 
 #. module: website
 #: model:ir.model.fields.selection,name:website.selection__theme_ir_asset__directive__prepend
@@ -12786,7 +12792,7 @@ msgstr "秒"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_dynamic_snippet_options_template
 msgid "Section Title"
-msgstr "セクションタイトル"
+msgstr "セクション件名"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.new_page_template_landing_s_showcase
@@ -13251,7 +13257,7 @@ msgstr "右にスライド"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_carousel
 msgid "Slide Title"
-msgstr "スライドタイトル"
+msgstr "スライド件名"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_tabs_options
@@ -13354,7 +13360,7 @@ msgid ""
 "Some quick example text to build on the card title and make up the bulk of "
 "the card's content."
 msgstr ""
-"カードタイトルをベースに、カード内容の大部分を構成する簡単ないくつかの例文。"
+"カード件名をベースに、カード内容の大部分を構成する簡単ないくつかの例文。"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.bs_debug_view
@@ -14110,7 +14116,7 @@ msgstr "カウントダウンは終わると、メッセージが表示されま
 #: model:ir.model.fields,field_description:website.field_website_controller_page__name
 msgid ""
 "The name is used to generate the URL and is shown in the browser title bar"
-msgstr "この名前はURLの生成に使われ、ブラウザのタイトルバーに表示されます。"
+msgstr "この名前はURLの生成に使われ、ブラウザの件名バーに表示されます。"
 
 #. module: website
 #: model:ir.model.fields,help:website.field_website_controller_page__name_slugified
@@ -14144,7 +14150,7 @@ msgstr "チーム"
 #. odoo-javascript
 #: code:addons/website/static/src/components/dialog/seo.xml:0
 msgid "The title will take a default value unless you specify one."
-msgstr "指定してない場合は、タイトルはデフォルト値を使用します。"
+msgstr "指定してない場合は、件名はデフォルト値を使用します。"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.cookie_policy
@@ -14381,7 +14387,7 @@ msgstr ""
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_key_images
 msgid "This is a small title related to the current image"
-msgstr "これは現在のイメージに関連するタイトルです。"
+msgstr "これは現在のイメージに関連する件名です。"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.bs_debug_view
@@ -14590,23 +14596,23 @@ msgstr "ヒント: ロイヤリティフリーの写真を使用しましょう"
 #: model_terms:ir.ui.view,arch_db:website.s_text_block_h2
 #: model_terms:ir.ui.view,arch_db:website.snippets
 msgid "Title"
-msgstr "タイトル"
+msgstr "件名"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippets
 msgid "Title - Form"
-msgstr "タイトル - フォーム"
+msgstr "件名 - フォーム"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippets
 msgid "Title - Image"
-msgstr "タイトル - 画像"
+msgstr "件名 - 画像"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_rating_options
 #: model_terms:ir.ui.view,arch_db:website.snippet_options
 msgid "Title Position"
-msgstr "タイトル位置"
+msgstr "件名位置"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_three_columns
@@ -14650,8 +14656,8 @@ msgid ""
 msgstr ""
 "もっと訪問者を惹きつけるためには、Googleで最も検索されたキーワードを対象とし"
 "ましょう。まずはいくつのキーワードを定義して、組込SEOツールを使って、Odooが対"
-"象とされるべきの最適なキーワードを提案します。それに従って、キーワードをタイ"
-"トルや説明に入れて閲覧数を増やしましょう。"
+"象とされるべきの最適なキーワードを提案します。それに従って、キーワードを件名"
+"や説明に入れて閲覧数を増やしましょう。"
 
 #. module: website
 #. odoo-javascript
@@ -15230,7 +15236,7 @@ msgstr "ページ第二レベル見出しに使われてる"
 #. odoo-javascript
 #: code:addons/website/static/src/components/dialog/seo.xml:0
 msgid "Used in page title"
-msgstr "ページタイトルに使われてる"
+msgstr "ページ件名に使われてる"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.cookie_policy
@@ -16115,7 +16121,7 @@ msgstr "サイトメタキーワード"
 #: model:ir.model.fields,field_description:website.field_website_page__website_meta_title
 #: model:ir.model.fields,field_description:website.field_website_seo_metadata__website_meta_title
 msgid "Website meta title"
-msgstr "サイトメタタイトル"
+msgstr "サイトメタ件名"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_ir_ui_view__website_meta_og_img
@@ -16584,7 +16590,7 @@ msgstr "ご質問内容"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_title
 msgid "Your Site Title"
-msgstr "サイトタイトル"
+msgstr "サイト件名"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.new_page_template_landing_s_features

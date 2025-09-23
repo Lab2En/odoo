@@ -765,6 +765,19 @@ class TestAccountAnalyticAccount(AccountTestInvoicingCommon, AnalyticCommon):
             f"{self.analytic_account_2.id}": 60,
         })
 
+    def test_zero_balance_invoice_with_analytic_line(self):
+        """ Test that creating an analytic line on a 0-amount invoice does not crash and updates analytic_distribution safely. """
+        self.product_a.list_price = 0.0
+        invoice = self.create_invoice(self.partner_a, self.product_a)
+        invoice.action_post()
+        self.env['account.analytic.line'].create({
+            'name': 'Zero Balance Test',
+            'account_id': self.analytic_account_1.id,
+            'amount': 33.0,
+            'move_line_id': invoice.invoice_line_ids.id,
+        })
+        self.assertEqual(invoice.invoice_line_ids.analytic_distribution, {f"{self.analytic_account_1.id}": 100.0})
+
     def test_analytic_dynamic_update(self):
         plan1 = self.analytic_account_1.plan_id._column_name()
         plan2 = self.analytic_account_3.plan_id._column_name()
@@ -975,3 +988,104 @@ class TestAccountAnalyticAccount(AccountTestInvoicingCommon, AnalyticCommon):
                 invoice_line.flush_recordset(['analytic_distribution'])
                 invoice_line.analytic_distribution = update
                 self.assertEqual(invoice_line.analytic_distribution, expect)
+
+    def test_move_with_analytic_lines(self):
+        """
+        Ensure that, if analytic lines are created when a move is in draft state (as happens when importing a move
+        with analytics), the analytic lines are unlinked. AMLs should still have the correct analytic distribution.
+        """
+        # Create a move with commands to create analytic lines
+        journal_entry = self.env['account.move'].create({
+            'move_type': 'entry',
+            'line_ids': [
+                Command.create({
+                    'name': 'debit',
+                    'account_id': self.company_data['default_account_revenue'].id,
+                    'debit': 2000.0,
+                    'credit': 0.0,
+                    'analytic_line_ids': [Command.create({
+                        'name': 'Analytic Line 1',
+                        'account_id': self.analytic_account_a.id,
+                        'amount': -2000,
+                        self.analytic_plan_1._column_name(): self.analytic_account_1.id,
+                        self.analytic_plan_2._column_name(): self.analytic_account_3.id,
+                    })],
+                }),
+                Command.create({
+                    'name': 'credit',
+                    'account_id': self.company_data['default_account_expense'].id,
+                    'debit': 0.0,
+                    'credit': 2000.0,
+                    'analytic_line_ids': [Command.create({
+                        'name': 'Analytic Line 2',
+                        'account_id': self.analytic_account_a.id,
+                        'amount': 2000.0,
+                        self.analytic_plan_1._column_name(): False,
+                        self.analytic_plan_2._column_name(): False,
+                    })],
+                }),
+            ],
+        })
+
+        # No analytic line should be created at this point
+        self.assertFalse(self.get_analytic_lines(journal_entry))
+
+        # Confirm that the analytic distribution was correctly set based on the analytic_line_ids values
+        self.assertRecordValues(journal_entry.line_ids, [
+            {'analytic_distribution': {
+                f"{self.analytic_account_a.id},{self.analytic_account_1.id},{self.analytic_account_3.id}": 100.0,
+            }},
+            {'analytic_distribution': {f"{self.analytic_account_a.id}": 100.0}},
+        ])
+
+        # Write to an existing draft move, with a command to create analytic lines
+        journal_entry.line_ids[0].write({
+            'analytic_line_ids': [Command.create({
+                'name': 'Analytic Line 1',
+                'account_id': False,
+                'amount': -2000,
+                self.analytic_plan_1._column_name(): self.analytic_account_1.id,
+                self.analytic_plan_2._column_name(): False,
+            })],
+        })
+
+        # Still no analytic line
+        self.assertFalse(self.get_analytic_lines(journal_entry))
+
+        # Confirm that the analytic distribution is correct
+        self.assertRecordValues(journal_entry.line_ids, [
+            {'analytic_distribution': {f"{self.analytic_account_1.id}": 100.0}},
+            {'analytic_distribution': {f"{self.analytic_account_a.id}": 100.0}},
+        ])
+
+        # After posting the move, the analytic line should be created as usual
+        journal_entry.action_post()
+        self.assertTrue(self.get_analytic_lines(journal_entry))
+
+    def test_multicurrency_different_rounding_analytic_line(self):
+        """If using a foreign currency, the rounding of the analytic_line amount should the one from the company currency"""
+        foreign_currency = self.env['res.currency'].create({
+            'name': "Great Currency",
+            'symbol': '🫀',
+            'rounding': 1,
+            'rate_ids': [
+                Command.create({'name': '2025-01-01', 'rate': 3}),
+            ],
+        })
+        invoice = self.env['account.move'].create({
+            'move_type': 'out_invoice',
+            'partner_id': self.partner_a.id,
+            'date': '2025-01-01',
+            'currency_id': foreign_currency.id,
+            'invoice_line_ids': [Command.create({
+                'product_id': self.product_a.id,
+                'price_unit': 10.0,
+                'quantity': 1,
+                'tax_ids': [],
+                'analytic_distribution': {
+                    self.analytic_account_1.id: 100,
+                },
+            })]
+        })
+        invoice.action_post()
+        self.assertEqual(self.get_analytic_lines(invoice).amount, 3.33)
