@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-12 01:50+0000\n"
+"POT-Creation-Date: 2025-10-31 18:37+0000\n"
 "PO-Revision-Date: 2024-09-25 09:41+0000\n"
 "Last-Translator: Larisa_nexterp, 2025\n"
 "Language-Team: Romanian (https://app.transifex.com/odoo/teams/41243/ro/)\n"
@@ -932,12 +932,6 @@ msgstr "Numărul de identificare al punctului final Peppol nu este corect."
 
 #. module: account_peppol
 #. odoo-python
-#: code:addons/account_peppol/models/account_edi_proxy_user.py:0
-msgid "The Peppol service that is used is likely to be %s."
-msgstr "Serviciul Peppol utilizat este probabil %s."
-
-#. module: account_peppol
-#. odoo-python
 #: code:addons/account_peppol/models/account_move_send.py:0
 msgid "The document has been sent to the Peppol Access Point for processing"
 msgstr "Documentul a fost trimis la Punctul de Acces Peppol pentru procesare"
@@ -984,15 +978,6 @@ msgid ""
 "to Live."
 msgstr ""
 "Starea peppol a documentelor a fost resetată la trecerea de la Demo la Live."
-
-#. module: account_peppol
-#: model_terms:ir.ui.view,arch_db:account_peppol.res_partner_form_account_peppol
-msgid ""
-"The recommended identification method for Belgium is your Company Registry "
-"Number."
-msgstr ""
-"Metoda recomandată de identificare pentru Belgia este numărul de "
-"înregistrare al companiei dvs."
 
 #. module: account_peppol
 #: model:ir.model.fields,help:account_peppol.field_res_config_settings__account_peppol_edi_identification
@@ -1267,6 +1252,16 @@ msgstr "pentru a trimite facturi, dar aceasta"
 #: model_terms:ir.ui.view,arch_db:account_peppol.mail_notification_layout_with_responsible_signature_and_peppol
 msgid "uses"
 msgstr "folosește"
+
+#~ msgid "The Peppol service that is used is likely to be %s."
+#~ msgstr "Serviciul Peppol utilizat este probabil %s."
+
+#~ msgid ""
+#~ "The recommended identification method for Belgium is your Company "
+#~ "Registry Number."
+#~ msgstr ""
+#~ "Metoda recomandată de identificare pentru Belgia este numărul de "
+#~ "înregistrare al companiei dvs."
 
 #~ msgid "Primary contact email for Peppol-related communication"
 #~ msgstr "E-mail de contact principal pentru comunicarea legată de Peppol"

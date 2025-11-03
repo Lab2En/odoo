@@ -95,7 +95,7 @@ class AccountFiscalPosition(models.Model):
         for position in self:
             tax_map = defaultdict(list)
             for tl in position.tax_ids:
-                if tl.tax_dest_id:
+                if tl.tax_dest_active:
                     tax_map[tl.tax_src_id.id].append(tl.tax_dest_id.id)
                 else:
                     tax_map[tl.tax_src_id.id]  # map to an empty list
@@ -355,7 +355,10 @@ class ResPartner(models.Model):
     def _compute_fiscal_country_codes(self):
         for record in self:
             allowed_companies = record.company_id or self.env.companies
-            record.fiscal_country_codes = ",".join(allowed_companies.mapped('account_fiscal_country_id.code'))
+            country_codes = allowed_companies.mapped('account_fiscal_country_id.code')
+            if record.country_code:
+                country_codes.append(record.country_code)
+            record.fiscal_country_codes = ",".join(country_codes)
 
     @property
     def _order(self):
