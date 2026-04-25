@@ -101,10 +101,8 @@ class TestProductCatalog(HttpCase, SaleCommon):
             catalog_context['product_catalog_currency_id'],
             self.empty_order.currency_id.id,
         )
-        self.assertEqual(
-            catalog_context['product_catalog_digits'],
-            (16, self.env['decimal.precision'].precision_get('Product Price')),
-        )
+        # Equal to false, as `price_unit` doesn't have a precision set.
+        self.assertFalse(catalog_context['product_catalog_digits'])
 
     def test_empty_order_data(self):
         self.check_catalog_data(self.products)
@@ -234,3 +232,10 @@ class TestProductCatalog(HttpCase, SaleCommon):
             }]
         )
         self.assertEqual(update_data, product.lst_price / 2)
+
+    def test_remove_product_from_catalog_without_sol(self):
+        """Test that removing a product from the catalog right after clicking Add button"""
+        product = self.service_product
+        update_data = self.request_update_order_line_info(product=product, quantity=0.0)
+
+        self.assertEqual(update_data, product.lst_price)

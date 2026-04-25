@@ -25,6 +25,7 @@ const {
     DEFAULT_RELATIONAL_FIELD_VALUES,
     DEFAULT_SELECTION_FIELD_VALUES,
     S_FIELD,
+    copyFields,
     isComputed,
 } = fields;
 
@@ -384,12 +385,11 @@ function getModelDefinition(previous, constructor) {
                 }
             }
             for (const [key, map] of INHERITED_OBJECT_KEYS) {
-                for (const subKey in previous[key]) {
+                const previousValue = map ? map(previous[key]) : previous[key];
+                for (const subKey in previousValue) {
                     // Assign only if empty
                     if (isEmptyValue(model[key][subKey])) {
-                        model[key][subKey] = map
-                            ? map(previous[key][subKey])
-                            : previous[key][subKey];
+                        model[key][subKey] = previousValue[subKey];
                     }
                 }
             }
@@ -865,7 +865,7 @@ function parseView(model, params) {
     const { arch } = params;
     const level = params.level || 0;
     const editable = params.editable || true;
-    const fields = deepCopy(model._fields);
+    const fields = copyFields(model._fields);
 
     const { _onChanges } = model;
     const fieldNodes = {};
@@ -1340,7 +1340,7 @@ const DATETIME_FORMAT = {
 };
 const INHERITED_OBJECT_KEYS = [
     ["_computes", null],
-    ["_fields", deepCopy],
+    ["_fields", copyFields],
     ["_onChanges", null],
     ["_toolbar", deepCopy],
     ["_views", null],
@@ -2305,7 +2305,7 @@ export class Model extends Array {
                 model_domain: modelDomain,
                 extra_domain: extraDomain,
                 only_counters: expand,
-                set_limit: limit && !(expand || hierarchize || comodelDomain),
+                set_limit: limit && !(expand || hierarchize || comodelDomain.length),
             });
         }
         if (!expand && !hierarchize && !comodelDomain.length) {
@@ -2511,7 +2511,7 @@ export class Model extends Array {
                     model_domain: modelDomain,
                     extra_domain: extraDomain,
                     only_counters: expand,
-                    set_limit: limit && !(expand || groupBy || comodelDomain),
+                    set_limit: limit && !(expand || groupBy || comodelDomain.length),
                 });
             }
             if (!expand && !groupBy && !comodelDomain.length) {
@@ -2934,16 +2934,16 @@ export class Model extends Array {
             // in by the 'in' operator (with the ids of children)
             if (criterion[1] === "child_of") {
                 let oldLength = 0;
-                const childIds = [criterion[2]];
-                while (childIds.length > oldLength) {
-                    oldLength = childIds.length;
+                const childIds = new Set([criterion[2]]);
+                while (childIds.size > oldLength) {
+                    oldLength = childIds.size;
                     for (const record of this) {
-                        if (childIds.indexOf(record[this._parent_name]) >= 0) {
-                            childIds.push(record.id);
+                        if (childIds.has(record[this._parent_name])) {
+                            childIds.add(record.id);
                         }
                     }
                 }
-                criterion = [criterion[0], "in", childIds];
+                criterion = [criterion[0], "in", Array.from(childIds)];
             }
             // In case of many2many field, if domain operator is '=' generally change it to 'in' operator
             const field = this._fields[criterion[0]] || {};

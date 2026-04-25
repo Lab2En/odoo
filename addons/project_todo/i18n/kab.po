@@ -3,19 +3,22 @@
 # * project_todo
 #
 # Odoo Translation Bot <c3p@odoo.com>, 2025.
+# Weblate <noreply-mt-weblate@weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-25 08:39+0000\n"
-"PO-Revision-Date: 2024-09-25 08:39+0000\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"POT-Creation-Date: 2025-12-29 18:37+0000\n"
+"PO-Revision-Date: 2025-11-25 09:51+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"Language-Team: Kabyle <https://translate.odoo.com/projects/odoo-18/"
+"project_todo/kab/>\n"
 "Language: kab\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.12.2\n"
 
 #. module: project_todo
 #: model_terms:ir.ui.view,arch_db:project_todo.todo_user_onboarding
@@ -71,11 +74,14 @@ msgstr ""
 msgid ""
 "<span style=\"font-size: 14px;\">\n"
 "            Select text to\n"
-"            <font style=\"background-color: #017E84; color: white\">Highlight</font>,\n"
-"            <span style=\"text-decoration-line: line-through;\">strikethrough</span>\n"
+"            <font style=\"background-color: #017E84; color: "
+"white\">Highlight</font>,\n"
+"            <span style=\"text-decoration-line: line-through;"
+"\">strikethrough</span>\n"
 "            or\n"
 "            <span style=\"font-weight: bolder;\">style</span>\n"
-"            <span style=\"font-style: italic; text-decoration-line: underline;\">it</span>\n"
+"            <span style=\"font-style: italic; text-decoration-line: "
+"underline;\">it</span>\n"
 "        </span>"
 msgstr ""
 
@@ -83,9 +89,11 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:project_todo.todo_user_onboarding
 msgid ""
 "<span style=\"font-size: 14px;\">\n"
-"        Access your personal pipeline with your to-dos and assigned tasks by going to the Project app and clicking\n"
+"        Access your personal pipeline with your to-dos and assigned tasks by "
+"going to the Project app and clicking\n"
 "        <span>\n"
-"            <font style=\"font-weight: bolder;\" class=\"text-o-color-2\">My Tasks</font>.\n"
+"            <font style=\"font-weight: bolder;\" class=\"text-o-color-2\">My "
+"Tasks</font>.\n"
 "        </span>\n"
 "    </span>\n"
 "    <br/>\n"
@@ -95,7 +103,8 @@ msgid ""
 "        <span style=\"font-weight: bolder;\">\n"
 "            <font class=\"text-o-color-2\">private tasks.</font>\n"
 "        </span>\n"
-"        Any task you create privately will also be included in your to-dos. Essentially, they are interchangeable.\n"
+"        Any task you create privately will also be included in your to-dos. "
+"Essentially, they are interchangeable.\n"
 "    </span>"
 msgstr ""
 
@@ -103,9 +112,11 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:project_todo.todo_user_onboarding
 msgid ""
 "<span style=\"font-size: 14px;\">\n"
-"        By default, to-dos are only visible to you. You can share them with other users by adding them as\n"
+"        By default, to-dos are only visible to you. You can share them with "
+"other users by adding them as\n"
 "        <span>\n"
-"            <font style=\"font-weight: bolder;\" class=\"text-o-color-2\">assignees</font>.\n"
+"            <font style=\"font-weight: bolder;\" class=\"text-o-"
+"color-2\">assignees</font>.\n"
 "        </span>\n"
 "    </span>\n"
 "    <br/>"
@@ -127,9 +138,11 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:project_todo.todo_user_onboarding
 msgid ""
 "<span style=\"font-size: 14px;\">\n"
-"        If you want to assign your to-do to a specific project, open the ⚙️ menu and click\n"
+"        If you want to assign your to-do to a specific project, open the ⚙️ "
+"menu and click\n"
 "        <span>\n"
-"            <font style=\"font-weight: bolder;\" class=\"text-o-color-2\">Convert to Task</font>.\n"
+"            <font style=\"font-weight: bolder;\" class=\"text-o-"
+"color-2\">Convert to Task</font>.\n"
 "        </span>\n"
 "        This action will make it visible to other users.\n"
 "    </span>\n"
@@ -140,7 +153,8 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:project_todo.todo_user_onboarding
 msgid ""
 "<span style=\"font-size: 14px;\">\n"
-"        Use it to manage your work, take notes on the go, and create tasks based on them.\n"
+"        Use it to manage your work, take notes on the go, and create tasks "
+"based on them.\n"
 "    </span>"
 msgstr ""
 
@@ -148,7 +162,8 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:project_todo.todo_user_onboarding
 msgid ""
 "<span style=\"font-size: 14px;\">\n"
-"        Wherever you are, use the magic keyboard shortcut to add yourself a reminder &amp;#128161;\n"
+"        Wherever you are, use the magic keyboard shortcut to add yourself a "
+"reminder &amp;#128161;\n"
 "    </span>\n"
 "    <br/>"
 msgstr ""
@@ -162,8 +177,7 @@ msgstr ""
 #. module: project_todo
 #: model_terms:ir.ui.view,arch_db:project_todo.todo_user_onboarding
 msgid ""
-"<span style=\"font-size: 14px;\">Click anywhere, and just start "
-"typing</span>"
+"<span style=\"font-size: 14px;\">Click anywhere, and just start typing</span>"
 msgstr ""
 
 #. module: project_todo
@@ -175,7 +189,8 @@ msgstr ""
 #. module: project_todo
 #: model_terms:ir.ui.view,arch_db:project_todo.todo_user_onboarding
 msgid ""
-"<span style=\"font-size: 14px;\">This private to-do is for you to play around with.</span>\n"
+"<span style=\"font-size: 14px;\">This private to-do is for you to play "
+"around with.</span>\n"
 "    <br/>\n"
 "    <span style=\"font-size: 14px;\">Ready to give it a spin?</span>"
 msgstr ""
@@ -223,7 +238,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:project_todo.project_task_view_todo_form
 #: model_terms:ir.ui.view,arch_db:project_todo.project_task_view_todo_search
 msgid "Archived"
-msgstr ""
+msgstr "Yettwaɣbeṛ"
 
 #. module: project_todo
 #: model:ir.model.fields,field_description:project_todo.field_mail_activity_todo_create__user_id
@@ -254,7 +269,7 @@ msgstr ""
 #. module: project_todo
 #: model_terms:ir.ui.view,arch_db:project_todo.project_task_view_todo_search
 msgid "Closed"
-msgstr ""
+msgstr "Yemdel"
 
 #. module: project_todo
 #: model_terms:ir.ui.view,arch_db:project_todo.project_task_view_todo_search
@@ -287,28 +302,28 @@ msgstr ""
 #. module: project_todo
 #: model:ir.model.fields,field_description:project_todo.field_mail_activity_todo_create__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Yerna-t"
 
 #. module: project_todo
 #: model:ir.model.fields,field_description:project_todo.field_mail_activity_todo_create__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Yerna di"
 
 #. module: project_todo
 #: model_terms:ir.ui.view,arch_db:project_todo.project_task_view_todo_kanban
 msgid "Delete"
-msgstr ""
+msgstr "Kkes"
 
 #. module: project_todo
 #: model_terms:ir.ui.view,arch_db:project_todo.mail_activity_todo_create_popup
 #: model_terms:ir.ui.view,arch_db:project_todo.project_task_view_todo_conversion_form
 msgid "Discard"
-msgstr ""
+msgstr "Sefsex"
 
 #. module: project_todo
 #: model:ir.model.fields,field_description:project_todo.field_mail_activity_todo_create__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Isem n Ubeqqeḍ"
 
 #. module: project_todo
 #: model:ir.model.fields,field_description:project_todo.field_mail_activity_todo_create__date_deadline
@@ -323,7 +338,7 @@ msgstr ""
 #. module: project_todo
 #: model_terms:ir.ui.view,arch_db:project_todo.project_task_view_todo_search
 msgid "Group By"
-msgstr ""
+msgstr "Sdukel s"
 
 #. module: project_todo
 #: model_terms:ir.ui.view,arch_db:project_todo.todo_user_onboarding
@@ -333,24 +348,25 @@ msgstr ""
 #. module: project_todo
 #: model:ir.model.fields,field_description:project_todo.field_mail_activity_todo_create__id
 msgid "ID"
-msgstr ""
+msgstr "Asulay"
 
 #. module: project_todo
 #: model_terms:ir.actions.act_window,help:project_todo.project_task_action_todo
 msgid ""
 "Keep your work organized by using memos and to-do lists.\n"
-"                Your to-do items are private by default, but you can choose to share them with others by adding them as assignees."
+"                Your to-do items are private by default, but you can choose "
+"to share them with others by adding them as assignees."
 msgstr ""
 
 #. module: project_todo
 #: model:ir.model.fields,field_description:project_todo.field_mail_activity_todo_create__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Aleqqem aneggaru sɣuṛ"
 
 #. module: project_todo
 #: model:ir.model.fields,field_description:project_todo.field_mail_activity_todo_create__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Aleqqem aneggaru di"
 
 #. module: project_todo
 #: model_terms:ir.ui.view,arch_db:project_todo.project_task_view_todo_search
@@ -370,7 +386,7 @@ msgstr ""
 #. module: project_todo
 #: model:ir.model.fields,field_description:project_todo.field_mail_activity_todo_create__note
 msgid "Note"
-msgstr ""
+msgstr "Awennit"
 
 #. module: project_todo
 #: model:res.groups,name:project_todo.group_onboarding_todo
@@ -380,7 +396,7 @@ msgstr ""
 #. module: project_todo
 #: model_terms:ir.ui.view,arch_db:project_todo.project_task_view_todo_search
 msgid "Open"
-msgstr ""
+msgstr "Ldi"
 
 #. module: project_todo
 #: model_terms:ir.ui.view,arch_db:project_todo.todo_user_onboarding
@@ -406,7 +422,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:project_todo.project_task_view_todo_search
 #: model_terms:ir.ui.view,arch_db:project_todo.project_task_view_todo_tree
 msgid "Stage"
-msgstr ""
+msgstr "Amecwaṛ"
 
 #. module: project_todo
 #: model_terms:ir.ui.view,arch_db:project_todo.project_task_view_todo_search
@@ -421,14 +437,14 @@ msgstr ""
 #. module: project_todo
 #: model_terms:ir.ui.view,arch_db:project_todo.project_task_view_todo_search
 msgid "Tags"
-msgstr ""
+msgstr "Tibzimin"
 
 #. module: project_todo
 #. odoo-python
 #: code:addons/project_todo/models/res_users.py:0
 #: model:ir.model,name:project_todo.model_project_task
 msgid "Task"
-msgstr ""
+msgstr "Tawuri"
 
 #. module: project_todo
 #. odoo-python
@@ -489,7 +505,7 @@ msgstr ""
 #. module: project_todo
 #: model:ir.model,name:project_todo.model_res_users
 msgid "User"
-msgstr ""
+msgstr "Aseqdac"
 
 #. module: project_todo
 #: model_terms:ir.ui.view,arch_db:project_todo.todo_user_onboarding
