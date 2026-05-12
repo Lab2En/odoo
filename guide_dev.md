@@ -17,4 +17,8 @@ code .
 
 To run from VS code
 source venv/bin/activate
-python3 odoo-bin
+python3 odoo-bin --config=odoo.conf
+
+Or
+
+python3 odoo-bin --config=odoo.conf -d odoo -i base
