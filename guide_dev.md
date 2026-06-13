@@ -21,4 +21,6 @@ python3 odoo-bin --config=odoo.conf
 
 Or
 
-python3 odoo-bin --config=odoo.conf -d odoo -i base
+python3 odoo-bin --config=odoo.conf -d odoo -i base 
+
+if okay, login with (admin/admin for default)
